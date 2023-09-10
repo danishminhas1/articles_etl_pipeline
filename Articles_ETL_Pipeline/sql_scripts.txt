@@ -1,0 +1,33 @@
+CREATE TABLE if not exists article (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  url VARCHAR(255),
+  source VARCHAR(100),
+  published_date DATE,
+  updated DATETIME,
+  section VARCHAR(100),
+  subsection VARCHAR(100),
+  title VARCHAR(255),
+  abstract TEXT,
+  byline TEXT,
+  type VARCHAR(255)
+);
+
+CREATE TABLE if not exists keywords (
+  id INT,
+  keyword VARCHAR(100),
+  FOREIGN KEY (id) REFERENCES article (id)
+);
+
+CREATE TABLE if not exists des_facet (
+  id INT,
+  description VARCHAR(100),
+  FOREIGN KEY (id) REFERENCES article (id)
+);
+
+CREATE TABLE if not exists geo_facet (
+  id INT,
+  location VARCHAR(100),
+  FOREIGN KEY (id) REFERENCES article (id)
+);
+
+
